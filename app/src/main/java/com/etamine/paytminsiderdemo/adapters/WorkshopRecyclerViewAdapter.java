@@ -43,6 +43,7 @@ public class WorkshopRecyclerViewAdapter extends RecyclerView.Adapter<WorkshopRe
         if (currentData.getGroup_id().getName().equalsIgnoreCase("workshops")) {
             Picasso.with(context).load(currentData.getHorizontal_cover_image()).fit().into(holder.imgView_thumbnail);
             holder.txtView_title.setText(currentData.getName());
+            holder.txtView_date.setText(currentData.getVenue_date_string());
         }
     }
 
@@ -53,12 +54,13 @@ public class WorkshopRecyclerViewAdapter extends RecyclerView.Adapter<WorkshopRe
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imgView_thumbnail;
-        TextView txtView_title;
+        TextView txtView_title, txtView_date;
         ImageButton favImageButton;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             imgView_thumbnail = itemView.findViewById(R.id.imgView_thumbnail);
             txtView_title = itemView.findViewById(R.id.txtView_title);
+            txtView_date = itemView.findViewById(R.id.txtView_date);
             favImageButton = itemView.findViewById(R.id.favImageButton);
             favImageButton.setOnClickListener(this);
 
