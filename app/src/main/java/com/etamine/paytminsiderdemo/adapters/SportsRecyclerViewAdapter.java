@@ -38,7 +38,7 @@ public class SportsRecyclerViewAdapter extends RecyclerView.Adapter<SportsRecycl
     public void onBindViewHolder(@NonNull SportsRecyclerViewAdapter.MyViewHolder holder, int position) {
         MasterList currentData = masterList.get(position);
 
-        if (currentData.getType().equalsIgnoreCase("workshops")) {
+        if (currentData.getGroup_id().getName().equalsIgnoreCase("sports")) {
             Picasso.with(context).load(currentData.getHorizontal_cover_image()).fit().into(holder.imgView_thumbnail);
             holder.txtView_title.setText(currentData.getName());
             holder.txtView_date.setText(currentData.getVenue_date_string());
